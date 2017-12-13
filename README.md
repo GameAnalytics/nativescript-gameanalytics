@@ -8,7 +8,7 @@ NativeScript plugin for the GameAnalytics SDK for Android and iOS.
 #### Native Libraries: 
 Android | iOS
 ---------- | -----------
-[GameAnalytics/GA-SDK-ANDROID](https://github.com/GameAnalytics/GA-SDK-ANDROID) |  [GA-SDK-IOS](https://cocoapods.org/pods/GA-SDK-IOS)
+[GA-SDK-ANDROID](https://github.com/GameAnalytics/GA-SDK-ANDROID) |  [GA-SDK-IOS](https://cocoapods.org/pods/GA-SDK-IOS)
 
 ## Installation
 From your command prompt/termial go to your app's root folder and execute:
