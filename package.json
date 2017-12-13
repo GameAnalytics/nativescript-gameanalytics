@@ -1,56 +1,56 @@
 {
-  "name": "nativescript-gameanalytics",
-  "version": "1.0.0",
-  "main": "gameanalytics",
-  "typings": "index.d.ts",
-  "description": "Official NativeScript SDK for GameAnalytics. GameAnalytics is a free analytics platform that helps game developers understand their players' behaviour by delivering relevant insights.",
-  "nativescript": {
-    "platforms": {
-      "android": "3.0.0",
-      "ios": "3.0.0"
+    "name": "nativescript-gameanalytics",
+    "version": "1.0.0",
+    "main": "gameanalytics",
+    "typings": "index.d.ts",
+    "description": "Official NativeScript SDK for GameAnalytics. GameAnalytics is a free analytics platform that helps game developers understand their players' behaviour by delivering relevant insights.",
+    "nativescript": {
+        "platforms": {
+            "android": "3.0.0",
+            "ios": "3.0.0"
+        },
+        "plugin": {
+            "nan": "true",
+            "pan": "true",
+            "core3": "true",
+            "category": "Interface"
+        }
     },
-    "plugin": {
-      "nan": "true",
-      "pan": "true",
-      "core3": "true",
-      "category": "Interface"
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GameAnalytics/nativescript-gameanalytics.git"
+    },
+    "keywords": [
+        "NativeScript",
+        "native",
+        "script",
+        "analytics",
+        "gameanalytics"
+    ],
+    "author": {
+        "name": "GameAnalytics",
+        "email": "sdk@gameanalytics.com",
+        "url": "https://gameanalytics.com"
+    },
+    "scripts": {
+        "build": "tsc",
+        "clean": "rm -rf demo/node_modules demo/lib demo/platforms",
+        "demo.ios": "npm run preparedemo; cd demo; tns run ios --emulator",
+        "demo.android": "npm run preparedemo; cd demo; tns run android",
+        "preparedemo": "npm run build; cd demo; tns plugin remove nativescript-gameanalytics; tns plugin add ..; tns install",
+        "setup": "npm i; cd demo; npm install; cd ..; npm run build; cd demo; tns plugin add ..; cd .."
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/GameAnalytics/nativescript-gameanalytics/issues"
+    },
+    "homepage": "https://github.com/GameAnalytics/nativescript-gameanalytics",
+    "peerDependencies": {
+        "tns-core-modules": "^3.0.0"
+    },
+    "devDependencies": {
+        "tns-core-modules": "3.0.0",
+        "tns-platform-declarations": "3.0.1",
+        "typescript": "~2.2.0"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GameAnalytics/nativescript-gameanalytics.git"
-  },
-  "keywords": [
-    "NativeScript",
-    "native",
-    "script",
-    "analytics",
-    "gameanalytics"
-  ],
-  "author": {
-    "name": "GameAnalytics",
-    "email": "sdk@gameanalytics.com",
-    "url": "https://gameanalytics.com"
-  },
-  "scripts": {
-    "build": "tsc",
-    "clean": "rm -rf demo/node_modules demo/lib demo/platforms",
-    "demo.ios": "npm run preparedemo; cd demo; tns run ios --emulator",
-    "demo.android": "npm run preparedemo; cd demo; tns run android",
-    "preparedemo": "npm run build; cd demo; tns plugin remove nativescript-gameanalytics; tns plugin add ..; tns install",
-    "setup": "npm i; cd demo; npm install; cd ..; npm run build; cd demo; tns plugin add ..; cd .."
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/GameAnalytics/nativescript-gameanalytics/issues"
-  },
-  "homepage": "https://github.com/GameAnalytics/nativescript-gameanalytics",
-  "peerDependencies": {
-    "tns-core-modules": "^3.0.0"
-  },
-  "devDependencies": {
-    "tns-core-modules": "3.0.0",
-    "tns-platform-declarations": "3.0.1",
-    "typescript": "~2.2.0"
-  }
 }
