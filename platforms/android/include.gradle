@@ -1,0 +1,18 @@
+﻿//default elements
+android {
+    productFlavors {
+        "nativescriptgameanalytics" {
+            dimension "nativescriptgameanalytics"
+        }
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'http://maven.gameanalytics.com/release' }
+    }
+}
+
+dependencies {
+     compile "com.gameanalytics.sdk:gameanalytics-android:3.2.2"
+}
