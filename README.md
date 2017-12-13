@@ -39,7 +39,7 @@ public sendEvent() {
 
 ```
 
-For more documentation click [here](https://gameanalytics.com/docs).
+For more documentation click [here](https://gameanalytics.com/docs/nativescript-sdk).
 
 Changelog
 ---------
