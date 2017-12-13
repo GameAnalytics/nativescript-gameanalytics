@@ -44,5 +44,8 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.0.1**
+* readme updated
+
 **1.0.0**
 * initial commit
