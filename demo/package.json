@@ -9,7 +9,7 @@
     }
   },
   "dependencies": {
-    "nativescript-gameanalytics": "file:///Users/mts/Downloads/nativescript-gameanalytics",
+    "nativescript-gameanalytics": "file:///Users/mts/dev/git-hub/gameanalytics/nativescript-gameanalytics",
     "tns-core-modules": "^3.0.0"
   },
   "devDependencies": {

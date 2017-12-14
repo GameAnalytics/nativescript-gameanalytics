@@ -152,17 +152,17 @@ export class GameAnalyticsSDK {
 
     public static setCustomDimension01(dimension:string = ""): void
     {
-        GameAnalytics.setCustomDimension01(dimension);
+        GameAnalytics.setCustomDimension01((dimension && dimension.length > 0) ? dimension : null);
     }
 
     public static setCustomDimension02(dimension:string = ""): void
     {
-        GameAnalytics.setCustomDimension02(dimension);
+        GameAnalytics.setCustomDimension02((dimension && dimension.length > 0) ? dimension : null);
     }
 
     public static setCustomDimension03(dimension:string = ""): void
     {
-        GameAnalytics.setCustomDimension03(dimension);
+        GameAnalytics.setCustomDimension03((dimension && dimension.length > 0) ? dimension : null);
     }
 
     public static setFacebookId(facebookId:string = ""): void
