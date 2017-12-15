@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.0.3**
+* updated native android library version used
+
 **1.0.2**
 * small fix for clearing current custom dimension for iOS
 

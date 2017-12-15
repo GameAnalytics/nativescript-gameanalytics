@@ -14,5 +14,5 @@ allprojects {
 }
 
 dependencies {
-     compile "com.gameanalytics.sdk:gameanalytics-android:3.2.2"
+     compile "com.gameanalytics.sdk:gameanalytics-android:3.5.6"
 }
