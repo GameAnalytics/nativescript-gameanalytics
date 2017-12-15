@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.0.4**
+* updated native ios library version used
+
 **1.0.3**
 * updated native android library version used
 

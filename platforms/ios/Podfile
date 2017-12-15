@@ -1,1 +1,1 @@
-pod 'GA-SDK-IOS'
+pod 'GA-SDK-IOS', '2.2.11'
