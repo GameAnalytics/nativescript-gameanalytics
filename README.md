@@ -5,7 +5,7 @@
 # NativeScript-GameAnalytics
 NativeScript plugin for the GameAnalytics SDK for Android and iOS.
 
-#### Native Libraries: 
+#### Native Libraries:
 Android | iOS
 ---------- | -----------
 [GA-SDK-ANDROID](https://github.com/GameAnalytics/GA-SDK-ANDROID) |  [GA-SDK-IOS](https://cocoapods.org/pods/GA-SDK-IOS)
@@ -44,7 +44,7 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
-**1.0.4**
+**1.0.5**
 * bug fix initialize for android
 
 **1.0.4**
