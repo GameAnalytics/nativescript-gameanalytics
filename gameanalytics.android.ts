@@ -77,7 +77,7 @@ export class GameAnalyticsSDK {
     {
         //GameAnalytics.configureSdkGameEngineVersion("nativescript " + VERSION);
         //GameAnalytics.configureGameEngineVersion("nativescript " + NATIVESCRIPT_VERSION);
-        GameAnalytics.initializeWithGameKey(app.android.foregroundActivity, gameKey, gameSecret);
+        GameAnalytics.initializeWithGameKey(app.android.startActivity, gameKey, gameSecret);
     }
 
     public static addBusinessEvent(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = ""): void

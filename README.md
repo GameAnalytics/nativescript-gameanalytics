@@ -45,6 +45,9 @@ Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
 **1.0.4**
+* bug fix initialize for android
+
+**1.0.4**
 * updated native ios library version used
 
 **1.0.3**
