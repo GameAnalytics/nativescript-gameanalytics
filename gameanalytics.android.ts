@@ -36,6 +36,7 @@ declare var com: any;
 const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
+    private static version:string = "1.0.6";
 
     // public functions
     public static configureAvailableCustomDimensions01(customDimensions:Array<string> = []): void
@@ -75,7 +76,7 @@ export class GameAnalyticsSDK {
 
     public static initialize(gameKey:string = "", gameSecret:string = ""): void
     {
-        //GameAnalytics.configureSdkGameEngineVersion("nativescript " + VERSION);
+        GameAnalytics.configureSdkGameEngineVersion("nativescript " + GameAnalyticsSDK.version);
         //GameAnalytics.configureGameEngineVersion("nativescript " + NATIVESCRIPT_VERSION);
         GameAnalytics.initializeWithGameKey(app.android.startActivity, gameKey, gameSecret);
     }

@@ -29,7 +29,7 @@ export class HelloWorldModel extends Observable {
         GameAnalytics.configureBuild("0.1.1");
         GameAnalytics.configureUserId("my_user_id");
 
-        GameAnalytics.initialize("[INSERT_GAME_KEY]", "[INSERT_SECRET_KEY]");
+        GameAnalytics.initialize("bd624ee6f8e6efb32a054f8d7ba11618", "7f5c3f682cbd217841efba92e92ffb1b3b6612bc");
 
         if(isAndroid)
         {
