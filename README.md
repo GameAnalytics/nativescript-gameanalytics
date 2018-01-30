@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.0.7**
+* updated version validator in native libraries
+
 **1.0.6**
 * added sdk version to tracking
 

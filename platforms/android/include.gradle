@@ -15,5 +15,5 @@ allprojects {
 
 dependencies {
     compile 'com.google.android.gms:play-services-base:10.2.1'
-    compile "com.gameanalytics.sdk:gameanalytics-android:3.5.6"
+    compile "com.gameanalytics.sdk:gameanalytics-android:3.5.7"
 }
