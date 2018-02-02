@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.0.9**
+* fixed version sent with events
+
 **1.0.8**
 * fixed setting sdk version when initializing
 

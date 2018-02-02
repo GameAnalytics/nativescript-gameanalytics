@@ -33,7 +33,7 @@ export enum EGAResourceFlowType
 declare var GameAnalytics: any;
 
 export class GameAnalyticsSDK {
-    private static version:string = "1.0.8";
+    private static version:string = "1.0.9";
 
     // public functions
     public static configureAvailableCustomDimensions01(customDimensions:Array<string> = []): void
