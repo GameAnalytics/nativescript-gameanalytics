@@ -11,7 +11,7 @@ Android | iOS
 [GA-SDK-ANDROID](https://github.com/GameAnalytics/GA-SDK-ANDROID) |  [GA-SDK-IOS](https://cocoapods.org/pods/GA-SDK-IOS)
 
 ## Installation
-From your command prompt/termial go to your app's root folder and execute:
+From your command prompt/terminal go to your app's root folder and execute:
 
 #### NativeScript (only 3.0+)
 `tns plugin add nativescript-gameanalytics`
@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.0.10**
+* small bug fix in initialize function for ios (ios)
+
 **1.0.9**
 * fixed version sent with events
 

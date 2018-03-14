@@ -33,7 +33,7 @@ export enum EGAResourceFlowType
 declare var GameAnalytics: any;
 
 export class GameAnalyticsSDK {
-    private static version:string = "1.0.9";
+    private static version:string = "1.0.10";
 
     // public functions
     public static configureAvailableCustomDimensions01(customDimensions:Array<string> = []): void
@@ -73,7 +73,7 @@ export class GameAnalyticsSDK {
 
     public static initialize(gameKey:string = "", gameSecret:string = ""): void
     {
-        GameAnalytics.configureSdkGameEngineVersion("nativescript " + GameAnalyticsSDK.version);
+        GameAnalytics.configureSdkVersion("nativescript " + GameAnalyticsSDK.version);
         //GameAnalytics.configureGameEngineVersion("nativescript " + NATIVESCRIPT_VERSION);
         GameAnalytics.initializeWithGameKeyGameSecret(gameKey, gameSecret);
     }
