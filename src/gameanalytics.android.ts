@@ -1,3 +1,5 @@
+import * as app from "tns-core-modules/application";
+
 export enum EGAErrorSeverity
 {
     Undefined = 0,
@@ -30,10 +32,11 @@ export enum EGAResourceFlowType
     Sink = 2
 }
 
-declare var GameAnalytics: any;
+declare var com: any;
+const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
-    private static version:string = "1.0.10";
+    private static version:string = "1.0.11";
 
     // public functions
     public static configureAvailableCustomDimensions01(customDimensions:Array<string> = []): void
@@ -73,47 +76,47 @@ export class GameAnalyticsSDK {
 
     public static initialize(gameKey:string = "", gameSecret:string = ""): void
     {
-        GameAnalytics.configureSdkVersion("nativescript " + GameAnalyticsSDK.version);
+        GameAnalytics.configureSdkGameEngineVersion("nativescript " + GameAnalyticsSDK.version);
         //GameAnalytics.configureGameEngineVersion("nativescript " + NATIVESCRIPT_VERSION);
-        GameAnalytics.initializeWithGameKeyGameSecret(gameKey, gameSecret);
+        GameAnalytics.initializeWithGameKey(app.android.startActivity, gameKey, gameSecret);
     }
 
     public static addBusinessEvent(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = ""): void
     {
-        GameAnalytics.addBusinessEventWithCurrencyAmountItemTypeItemIdCartTypeAutoFetchReceipt(currency, amount, itemType, itemId, cartType, false);
+        GameAnalytics.addBusinessEventWithCurrency(currency, amount, itemType, itemId, cartType);
     }
 
     public static addBusinessEventAndroid(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = "", receipt:string, signature:string): void
     {
-        throw new Error("addBusinessEventAndroid is only supported on Android platform");
+        GameAnalytics.addBusinessEventWithCurrency(currency, amount, itemType, itemId, cartType, receipt, "google_play", signature)
     }
 
     public static addBusinessEventIOS(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = "", receipt:string): void
     {
-        GameAnalytics.addBusinessEventWithCurrencyAmountItemTypeItemIdCartTypeReceipt(currency, amount, itemType, itemId, cartType, receipt);
+        throw new Error("addBusinessEventIOS is only supported on iOS platform");
     }
 
     public static addBusinessEventAndAutoFetchReceiptIOS(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = ""): void
     {
-        GameAnalytics.addBusinessEventWithCurrencyAmountItemTypeItemIdCartTypeAutoFetchReceipt(currency, amount, itemType, itemId, cartType, true);
+        throw new Error("addBusinessEventAndAutoFetchReceiptIOS is only supported on iOS platform");
     }
 
     public static addResourceEvent(flowType:EGAResourceFlowType = EGAResourceFlowType.Undefined, currency:string = "", amount:number = 0, itemType:string = "", itemId:string = ""): void
     {
-        GameAnalytics.addResourceEventWithFlowTypeCurrencyAmountItemTypeItemId(flowType, currency, amount, itemType, itemId);
+        GameAnalytics.addResourceEventWithFlowType(flowType, currency, amount, itemType, itemId);
     }
 
-    public static addProgressionEvent(progressionStatus:EGAProgressionStatus = EGAProgressionStatus.Undefined, progression01:string = "", progression02:string = null, progression03:string = null, score?:number): void
+    public static addProgressionEvent(progressionStatus:EGAProgressionStatus = EGAProgressionStatus.Undefined, progression01:string = "", progression02:string = "", progression03:string = "", score?:number): void
     {
         var sendScore:boolean = typeof score != "undefined";
 
         if(sendScore)
         {
-            GameAnalytics.addProgressionEventWithProgressionStatusProgression01Progression02Progression03Score(progressionStatus, progression01, (progression02 && progression02.length > 0) ? progression02 : null, (progression03 && progression03.length > 0) ? progression03 : null, score)
+            GameAnalytics.addProgressionEventWithProgressionStatus(progressionStatus, progression01, progression02, progression03, score)
         }
         else
         {
-            GameAnalytics.addProgressionEventWithProgressionStatusProgression01Progression02Progression03(progressionStatus, progression01, (progression02 && progression02.length > 0) ? progression02 : null, (progression03 && progression03.length > 0) ? progression03 : null);
+            GameAnalytics.addProgressionEventWithProgressionStatus(progressionStatus, progression01, progression02, progression03);
         }
     }
 
@@ -123,7 +126,7 @@ export class GameAnalyticsSDK {
 
         if(sendValue)
         {
-            GameAnalytics.addDesignEventWithEventIdValue(eventId, value);
+            GameAnalytics.addDesignEventWithEventId(eventId, value);
         }
         else
         {
@@ -133,7 +136,7 @@ export class GameAnalyticsSDK {
 
     public static addErrorEvent(severity:EGAErrorSeverity = EGAErrorSeverity.Undefined, message:string = ""): void
     {
-        GameAnalytics.addErrorEventWithSeverityMessage(severity, message);
+        GameAnalytics.addErrorEventWithSeverity(severity, message);
     }
 
     public static setEnabledInfoLog(flag:boolean = false): void
@@ -153,17 +156,17 @@ export class GameAnalyticsSDK {
 
     public static setCustomDimension01(dimension:string = ""): void
     {
-        GameAnalytics.setCustomDimension01((dimension && dimension.length > 0) ? dimension : null);
+        GameAnalytics.setCustomDimension01(dimension);
     }
 
     public static setCustomDimension02(dimension:string = ""): void
     {
-        GameAnalytics.setCustomDimension02((dimension && dimension.length > 0) ? dimension : null);
+        GameAnalytics.setCustomDimension02(dimension);
     }
 
     public static setCustomDimension03(dimension:string = ""): void
     {
-        GameAnalytics.setCustomDimension03((dimension && dimension.length > 0) ? dimension : null);
+        GameAnalytics.setCustomDimension03(dimension);
     }
 
     public static setFacebookId(facebookId:string = ""): void
@@ -173,16 +176,7 @@ export class GameAnalyticsSDK {
 
     public static setGender(gender:EGAGender = EGAGender.Undefined): void
     {
-        switch(gender)
-        {
-            case EGAGender.Male:
-                GameAnalytics.setGender("male");
-                break;
-
-            case EGAGender.Female:
-                GameAnalytics.setGender("female");
-                break;
-        }
+        GameAnalytics.setGender(gender);
     }
 
     public static setBirthYear(birthYear:number = 0): void

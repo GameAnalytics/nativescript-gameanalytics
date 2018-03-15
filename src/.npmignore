@@ -8,4 +8,5 @@ screens/
 *.gitattributes
 *.ts
 !*.d.ts
+*.map
 tsconfig.json

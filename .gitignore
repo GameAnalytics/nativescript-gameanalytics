@@ -2,10 +2,12 @@
 *.js.map
 *.log
 *.d.ts
-!index.d.ts
-lib
+!src/index.d.ts
+demo/lib
 demo/app/*.js
 demo/*.d.ts
 demo/platforms
 demo/node_modules
 node_modules
+!demo/references.d.ts
+!src/references.d.ts
