@@ -7,13 +7,6 @@ android {
     }
 }
 
-allprojects {
-    repositories {
-        maven { url 'http://maven.gameanalytics.com/release' }
-    }
-}
-
 dependencies {
     compile 'com.google.android.gms:play-services-base:10.2.1'
-    compile "com.gameanalytics.sdk:gameanalytics-android:3.5.9"
 }

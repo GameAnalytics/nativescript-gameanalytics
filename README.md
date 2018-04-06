@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.0.12**
+* updated native libraries
+
 **1.0.11**
 * updated native ios header for missing function (ios)
 
