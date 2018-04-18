@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.0.13**
+* updated google play services compiled with native android library
+
 **1.0.12**
 * updated native libraries
 

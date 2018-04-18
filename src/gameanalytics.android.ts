@@ -36,7 +36,7 @@ declare var com: any;
 const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
-    private static version:string = "1.0.12";
+    private static version:string = "1.0.13";
 
     // public functions
     public static configureAvailableCustomDimensions01(customDimensions:Array<string> = []): void
