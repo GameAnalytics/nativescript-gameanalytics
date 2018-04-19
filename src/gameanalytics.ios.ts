@@ -39,7 +39,7 @@ declare var NSString: any;
 declare var NSUTF8StringEncoding: any;
 
 export class GameAnalyticsSDK {
-    private static version:string = "1.0.13";
+    private static version:string = "1.0.14";
 
     // public functions
     public static configureAvailableCustomDimensions01(customDimensions:Array<string> = []): void

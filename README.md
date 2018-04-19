@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.0.14**
+* changed to use pod file for ios platform
+
 **1.0.13**
 * updated google play services compiled with native android library
 
