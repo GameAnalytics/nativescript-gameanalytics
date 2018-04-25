@@ -44,6 +44,10 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.0.15**
+* fixed session length bug
+* fixed not allowing to add events when session is not started
+
 **1.0.14**
 * changed to use pod file for ios platform
 
