@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.0.16**
+* updated native libraries
+
 **1.0.15**
 * fixed session length bug
 * fixed not allowing to add events when session is not started

@@ -36,7 +36,7 @@ declare var com: any;
 const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
-    private static version:string = "1.0.15";
+    private static version:string = "1.0.16";
 
     // public functions
     public static configureAvailableCustomDimensions01(customDimensions:Array<string> = []): void
@@ -81,68 +81,62 @@ export class GameAnalyticsSDK {
         GameAnalytics.initializeWithGameKey(app.android.startActivity, gameKey, gameSecret);
     }
 
-    public static addBusinessEvent(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = "", fields:{[id:string]: any} = {}): void
+    public static addBusinessEvent(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = ""): void
     {
-        var fieldsString:string = JSON.stringify(fields);
-        GameAnalytics.addBusinessEventWithCurrency(currency, amount, itemType, itemId, cartType, fieldsString);
+        GameAnalytics.addBusinessEventWithCurrency(currency, amount, itemType, itemId, cartType);
     }
 
-    public static addBusinessEventAndroid(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = "", receipt:string, signature:string, fields:{[id:string]: any} = {}): void
+    public static addBusinessEventAndroid(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = "", receipt:string, signature:string): void
     {
-        var fieldsString:string = JSON.stringify(fields);
-        GameAnalytics.addBusinessEventWithCurrency(currency, amount, itemType, itemId, cartType, receipt, "google_play", signature, fieldsString)
+        GameAnalytics.addBusinessEventWithCurrency(currency, amount, itemType, itemId, cartType, receipt, "google_play", signature)
     }
 
-    public static addBusinessEventIOS(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = "", receipt:string, fields:{[id:string]: any} = {}): void
+    public static addBusinessEventIOS(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = "", receipt:string): void
     {
         throw new Error("addBusinessEventIOS is only supported on iOS platform");
     }
 
-    public static addBusinessEventAndAutoFetchReceiptIOS(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = "", fields:{[id:string]: any} = {}): void
+    public static addBusinessEventAndAutoFetchReceiptIOS(currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", cartType:string = ""): void
     {
         throw new Error("addBusinessEventAndAutoFetchReceiptIOS is only supported on iOS platform");
     }
 
-    public static addResourceEvent(flowType:EGAResourceFlowType = EGAResourceFlowType.Undefined, currency:string = "", amount:number = 0, itemType:string = "", itemId:string = "", fields:{[id:string]: any} = {}): void
+    public static addResourceEvent(flowType:EGAResourceFlowType = EGAResourceFlowType.Undefined, currency:string = "", amount:number = 0, itemType:string = "", itemId:string = ""): void
     {
-        var fieldsString:string = JSON.stringify(fields);
-        GameAnalytics.addResourceEventWithFlowType(flowType, currency, amount, itemType, itemId, fieldsString);
+        GameAnalytics.addResourceEventWithFlowType(flowType, currency, amount, itemType, itemId);
     }
 
-    public static addProgressionEvent(progressionStatus:EGAProgressionStatus = EGAProgressionStatus.Undefined, progression01:string = "", progression02:string = "", progression03:string = "", score?:number, fields:{[id:string]: any} = {}): void
+    public static addProgressionEvent(progressionStatus:EGAProgressionStatus = EGAProgressionStatus.Undefined, progression01:string = "", progression02:string = "", progression03:string = "", score?:number): void
     {
         var sendScore:boolean = typeof score != "undefined";
-        var fieldsString:string = JSON.stringify(fields);
 
         if(sendScore)
         {
-            GameAnalytics.addProgressionEventWithProgressionStatus(progressionStatus, progression01, progression02, progression03, score, fieldsString)
+            GameAnalytics.addProgressionEventWithProgressionStatus(progressionStatus, progression01, progression02, progression03, score)
         }
         else
         {
-            GameAnalytics.addProgressionEventWithProgressionStatus(progressionStatus, progression01, progression02, progression03, fieldsString);
+            GameAnalytics.addProgressionEventWithProgressionStatus(progressionStatus, progression01, progression02, progression03);
         }
     }
 
-    public static addDesignEvent(eventId:string, value?:number, fields:{[id:string]: any} = {}): void
+    public static addDesignEvent(eventId:string, value?:number): void
     {
         var sendValue:boolean = typeof value != "undefined";
-        var fieldsString:string = JSON.stringify(fields);
 
         if(sendValue)
         {
-            GameAnalytics.addDesignEventWithEventId(eventId, value, fieldsString);
+            GameAnalytics.addDesignEventWithEventId(eventId, value);
         }
         else
         {
-            GameAnalytics.addDesignEventWithEventId(eventId, fieldsString);
+            GameAnalytics.addDesignEventWithEventId(eventId);
         }
     }
 
-    public static addErrorEvent(severity:EGAErrorSeverity = EGAErrorSeverity.Undefined, message:string = "", fields:{[id:string]: any} = {}): void
+    public static addErrorEvent(severity:EGAErrorSeverity = EGAErrorSeverity.Undefined, message:string = ""): void
     {
-        var fieldsString:string = JSON.stringify(fields);
-        GameAnalytics.addErrorEventWithSeverity(severity, message, fieldsString);
+        GameAnalytics.addErrorEventWithSeverity(severity, message);
     }
 
     public static setEnabledInfoLog(flag:boolean = false): void
