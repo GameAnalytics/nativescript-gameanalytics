@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.1.1**
+* small fix to declaration file
+
 **1.1.0**
 * added GA beta functionality from native libs
 

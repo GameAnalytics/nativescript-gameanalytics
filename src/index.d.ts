@@ -60,7 +60,7 @@ export class GameAnalyticsSDK {
 
     static endSession(): void;
 
-    static getCommandCenterValueAsString(key:string, defaultValue:string): string;
+    static getCommandCenterValueAsString(key:string, defaultValue?:string): string;
 
     static isCommandCenterReady(): boolean;
 

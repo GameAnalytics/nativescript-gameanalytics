@@ -6,7 +6,7 @@ declare var com: any;
 const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
-    private static version:string = "1.1.0";
+    private static version:string = "1.1.1";
     private static _onCommandCenterUpdated = new SignalDispatcher();
 
     private static _commandCenterListener = new com.gameanalytics.sdk.ICommandCenterListener({
