@@ -1,34 +1,7 @@
-export enum EGAErrorSeverity
-{
-    Undefined = 0,
-    Debug = 1,
-    Info = 2,
-    Warning = 3,
-    Error = 4,
-    Critical = 5
-}
-
-export enum EGAGender
-{
-    Undefined = 0,
-    Male = 1,
-    Female = 2
-}
-
-export enum EGAProgressionStatus
-{
-    Undefined = 0,
-    Start = 1,
-    Complete = 2,
-    Fail = 3
-}
-
-export enum EGAResourceFlowType
-{
-    Undefined = 0,
-    Source = 1,
-    Sink = 2
-}
+import { EGAErrorSeverity, EGAGender, EGAProgressionStatus, EGAResourceFlowType } from './gameanalytics-enums';
+import { ISignal } from "strongly-typed-events";
+export * from './gameanalytics-enums';
+export { ISignal } from 'strongly-typed-events';
 
 export class GameAnalyticsSDK {
 
@@ -49,21 +22,21 @@ export class GameAnalyticsSDK {
 
     static initialize(gameKey:string, gameSecret:string): void;
 
-    static addBusinessEvent(currency:string, amount:number, itemType:string, itemId:string, cartType:string, fields?:{[id:string]: any}): void;
+    static addBusinessEvent(args:{[id:string]: any}): void;
 
-    static addBusinessEventAndroid(currency:string, amount:number, itemType:string, itemId:string, cartType:string, receipt:string, signature:string, fields?:{[id:string]: any}): void;
+    static addBusinessEventAndroid(args:{[id:string]: any}): void;
 
-    static addBusinessEventIOS(currency:string, amount:number, itemType:string, itemId:string, cartType:string, receipt:string, fields?:{[id:string]: any}): void;
+    static addBusinessEventIOS(args:{[id:string]: any}): void;
 
-    static addBusinessEventAndAutoFetchReceiptIOS(currency:string, amount:number, itemType:string, itemId:string, cartType:string, fields?:{[id:string]: any}): void;
+    static addBusinessEventAndAutoFetchReceiptIOS(args:{[id:string]: any}): void;
 
-    static addResourceEvent(flowType:EGAResourceFlowType, currency:string, amount:number, itemType:string, itemId:string, fields?:{[id:string]: any}): void;
+    static addResourceEvent(args:{[id:string]: any}): void;
 
-    static addProgressionEvent(progressionStatus:EGAProgressionStatus, progression01:string, progression02?:string, progression03?:string, score?:number, fields?:{[id:string]: any}): void;
+    static addProgressionEvent(args:{[id:string]: any}): void;
 
-    static addDesignEvent(eventId:string, value?:number, fields?:{[id:string]: any}): void;
+    static addDesignEvent(args:{[id:string]: any}): void;
 
-    static addErrorEvent(severity:EGAErrorSeverity, message:string, fields?:{[id:string]: any}): void;
+    static addErrorEvent(args:{[id:string]: any}): void;
 
     static setEnabledInfoLog(flag:boolean): void;
 
@@ -86,4 +59,12 @@ export class GameAnalyticsSDK {
     static startSession(): void;
 
     static endSession(): void;
+
+    static getCommandCenterValueAsString(key:string, defaultValue:string): string;
+
+    static isCommandCenterReady(): boolean;
+
+    static getConfigurationsContentAsString(): string;
+
+    static getCommandCenterSubscriber(): ISignal;
 }

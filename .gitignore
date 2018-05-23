@@ -10,5 +10,4 @@ demo/platforms
 demo/node_modules
 node_modules
 !demo/references.d.ts
-!src/references.d.ts
-!src/index.d.ts
+!src/*.d.ts
