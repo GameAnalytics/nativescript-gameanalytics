@@ -34,7 +34,9 @@ public initializeGameAnalytics() {
 
 // To send events...
 public sendEvent() {
-    GameAnalytics.addDesignEvent("design:event");
+    GameAnalytics.addDesignEvent({
+        eventId: "design:event"
+    });
 }
 
 ```
@@ -44,6 +46,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.1.3**
+* README updated
+
 **1.1.2**
 * fixed specific method for android that kept app hanging
 
