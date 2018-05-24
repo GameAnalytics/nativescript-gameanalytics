@@ -1,5 +1,4 @@
 import { EGAErrorSeverity, EGAGender, EGAProgressionStatus, EGAResourceFlowType } from './gameanalytics-enums';
-import { SignalDispatcher, ISignal } from "strongly-typed-events";
 
 declare var GameAnalytics: any;
 declare var NSDictionary: any;
@@ -21,8 +20,8 @@ declare var GACommandCenterDelegate: {
 };
 
 export class GameAnalyticsSDK {
-    private static version:string = "1.1.1";
-    private static _onCommandCenterUpdated = new SignalDispatcher();
+    private static version:string = "1.1.2";
+    private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
 
     private static GACommandCenterDelegateImpl = class GACommandCenterDelegateImpl extends NSObject implements GACommandCenterDelegate
     {
@@ -34,9 +33,14 @@ export class GameAnalyticsSDK {
 
         onCommandCenterUpdated(): void
         {
-            GameAnalyticsSDK._onCommandCenterUpdated.dispatch();
+            GameAnalyticsSDK._onCommandCenterUpdated.forEach((listener) => {
+                if(listener)
+                {
+                    listener();
+                }
+            });
         }
-    }
+    };
 
     private static _commandCenterListener = new GameAnalyticsSDK.GACommandCenterDelegateImpl();
 
@@ -291,8 +295,23 @@ export class GameAnalyticsSDK {
         return GameAnalytics.getCommandCenterConfigurations();
     }
 
-    public static getCommandCenterSubscriber(): ISignal
+    public static addCommandCenterListener(listener:() => void): void
     {
-        return GameAnalyticsSDK._onCommandCenterUpdated.asEvent();
+        if(listener && GameAnalyticsSDK._onCommandCenterUpdated.indexOf(listener, 0) < 0)
+        {
+            GameAnalyticsSDK._onCommandCenterUpdated.push(listener);
+        }
+    }
+
+    public static removeCommandCenterListener(listener:() => void): void
+    {
+        if(listener)
+        {
+            var index = GameAnalyticsSDK._onCommandCenterUpdated.indexOf(listener, 0);
+            if(index > -1)
+            {
+                GameAnalyticsSDK._onCommandCenterUpdated.splice(index, 1);
+            }
+        }
     }
 }

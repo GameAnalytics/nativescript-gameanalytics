@@ -1,19 +1,29 @@
 import * as app from "tns-core-modules/application";
 import { EGAErrorSeverity, EGAGender, EGAProgressionStatus, EGAResourceFlowType } from './gameanalytics-enums';
-import { SignalDispatcher, ISignal } from "strongly-typed-events";
 
 declare var com: any;
+declare var java: any;
 const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
-    private static version:string = "1.1.1";
-    private static _onCommandCenterUpdated = new SignalDispatcher();
+    private static version:string = "1.1.2";
+    private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
 
-    private static _commandCenterListener = new com.gameanalytics.sdk.ICommandCenterListener({
+    private static CommandCenterListenerImpl = java.lang.Object.extend({
+        interfaces: [com.gameanalytics.sdk.ICommandCenterListener],
         onCommandCenterUpdated: () => {
-            GameAnalyticsSDK._onCommandCenterUpdated.dispatch();
+            console.log("onCommandCenterUpdated before");
+            GameAnalyticsSDK._onCommandCenterUpdated.forEach((listener) => {
+                if(listener)
+                {
+                    listener();
+                }
+            });
+            console.log("onCommandCenterUpdated after");
         }
     });
+
+    private static _commandCenterListener = new GameAnalyticsSDK.CommandCenterListenerImpl();
 
     // public functions
     public static configureAvailableCustomDimensions01(customDimensions:Array<string> = []): void
@@ -229,8 +239,23 @@ export class GameAnalyticsSDK {
         return GameAnalytics.getConfigurationsContentAsString();
     }
 
-    public static getCommandCenterSubscriber(): ISignal
+    public static addCommandCenterListener(listener:() => void): void
     {
-        return GameAnalyticsSDK._onCommandCenterUpdated.asEvent();
+        if(listener && GameAnalyticsSDK._onCommandCenterUpdated.indexOf(listener, 0) < 0)
+        {
+            GameAnalyticsSDK._onCommandCenterUpdated.push(listener);
+        }
+    }
+
+    public static removeCommandCenterListener(listener:() => void): void
+    {
+        if(listener)
+        {
+            var index = GameAnalyticsSDK._onCommandCenterUpdated.indexOf(listener, 0);
+            if(index > -1)
+            {
+                GameAnalyticsSDK._onCommandCenterUpdated.splice(index, 1);
+            }
+        }
     }
 }

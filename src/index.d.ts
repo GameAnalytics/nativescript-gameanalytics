@@ -1,7 +1,5 @@
 import { EGAErrorSeverity, EGAGender, EGAProgressionStatus, EGAResourceFlowType } from './gameanalytics-enums';
-import { ISignal } from "strongly-typed-events";
 export * from './gameanalytics-enums';
-export { ISignal } from 'strongly-typed-events';
 
 export class GameAnalyticsSDK {
 
@@ -66,5 +64,7 @@ export class GameAnalyticsSDK {
 
     static getConfigurationsContentAsString(): string;
 
-    static getCommandCenterSubscriber(): ISignal;
+    static addCommandCenterListener(listener:() => void): void;
+
+    static removeCommandCenterListener(listener:() => void): void;
 }
