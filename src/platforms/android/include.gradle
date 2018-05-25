@@ -1,5 +1,4 @@
-﻿//default elements
-android {
+﻿android {
     productFlavors {
         "nativescriptgameanalytics" {
             dimension "nativescriptgameanalytics"
