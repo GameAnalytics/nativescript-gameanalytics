@@ -1,13 +1,13 @@
 {
     "name": "nativescript-gameanalytics",
-    "version": "1.1.6",
+    "version": "1.1.7",
     "main": "gameanalytics",
     "typings": "index.d.ts",
     "description": "Official NativeScript SDK for GameAnalytics. GameAnalytics is a free analytics platform that helps game developers understand their players' behaviour by delivering relevant insights.",
     "nativescript": {
         "platforms": {
-            "android": "4.0.0",
-            "ios": "4.0.0"
+            "android": "3.2.0",
+            "ios": "3.2.0"
         },
         "plugin": {
             "nan": "true",
@@ -55,8 +55,8 @@
     "homepage": "https://github.com/GameAnalytics/nativescript-gameanalytics",
     "dependencies": {},
     "devDependencies": {
-        "tns-core-modules": "4.0.0",
-        "tns-platform-declarations": "^4.0.0",
+        "tns-core-modules": "^3.3.0",
+        "tns-platform-declarations": "^3.1.0",
         "typescript": "~2.3.0",
         "prompt": "^1.0.0",
         "rimraf": "^2.5.0",

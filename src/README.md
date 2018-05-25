@@ -46,6 +46,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.1.7**
+* reversed to tns-core-modules 3.4.0
+
 **1.1.6**
 * another fix to gradle file
 
