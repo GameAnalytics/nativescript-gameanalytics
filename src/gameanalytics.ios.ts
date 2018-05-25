@@ -20,7 +20,7 @@ declare var GACommandCenterDelegate: {
 };
 
 export class GameAnalyticsSDK {
-    private static version:string = "1.1.5";
+    private static version:string = "1.1.6";
     private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
 
     private static GACommandCenterDelegateImpl = class GACommandCenterDelegateImpl extends NSObject implements GACommandCenterDelegate
