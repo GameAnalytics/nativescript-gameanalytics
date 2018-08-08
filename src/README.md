@@ -46,6 +46,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.1.8**
+* updated native libs
+
 **1.1.7**
 * reversed to tns-core-modules 3.4.0
 
