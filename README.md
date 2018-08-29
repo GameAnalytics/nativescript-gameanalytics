@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**2.0.0**
+* added comand center functionality
+
 **1.1.8**
 * updated native libs
 
