@@ -20,7 +20,7 @@ declare var GACommandCenterDelegate: {
 };
 
 export class GameAnalyticsSDK {
-    private static version:string = "2.0.0";
+    private static version:string = "2.0.1";
     private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
 
     private static GACommandCenterDelegateImpl = class GACommandCenterDelegateImpl extends NSObject implements GACommandCenterDelegate
@@ -95,13 +95,13 @@ export class GameAnalyticsSDK {
         var itemType:string = args.hasOwnProperty("itemType") ? args["itemType"] : "";
         var itemId:string = args.hasOwnProperty("itemId") ? args["itemId"] : "";
         var cartType:string = args.hasOwnProperty("cartType") ? args["cartType"] : "";
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
-        var fieldsString:string = JSON.stringify(fields);
-        var fieldsNSString = NSString.stringWithString(fieldsString);
-        var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
-        var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fieldsString:string = JSON.stringify(fields);
+        // var fieldsNSString = NSString.stringWithString(fieldsString);
+        // var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
+        // var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
 
-        GameAnalytics.addBusinessEventWithCurrencyAmountItemTypeItemIdCartTypeAutoFetchReceiptFields(currency, amount, itemType, itemId, cartType, false, fieldsDict);
+        GameAnalytics.addBusinessEventWithCurrencyAmountItemTypeItemIdCartTypeAutoFetchReceipt(currency, amount, itemType, itemId, cartType, false/*, fieldsDict*/);
     }
 
     public static addBusinessEventAndroid(args:{[id:string]: any}): void
@@ -117,13 +117,13 @@ export class GameAnalyticsSDK {
         var itemId:string = args.hasOwnProperty("itemId") ? args["itemId"] : "";
         var cartType:string = args.hasOwnProperty("cartType") ? args["cartType"] : "";
         var receipt:string = args.hasOwnProperty("receipt") ? args["receipt"] : "";
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
-        var fieldsString:string = JSON.stringify(fields);
-        var fieldsNSString = NSString.stringWithString(fieldsString);
-        var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
-        var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fieldsString:string = JSON.stringify(fields);
+        // var fieldsNSString = NSString.stringWithString(fieldsString);
+        // var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
+        // var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
 
-        GameAnalytics.addBusinessEventWithCurrencyAmountItemTypeItemIdCartTypeReceiptFields(currency, amount, itemType, itemId, cartType, receipt, fieldsDict);
+        GameAnalytics.addBusinessEventWithCurrencyAmountItemTypeItemIdCartTypeReceipt(currency, amount, itemType, itemId, cartType, receipt/*, fieldsDict*/);
     }
 
     public static addBusinessEventAndAutoFetchReceiptIOS(args:{[id:string]: any}): void
@@ -133,13 +133,13 @@ export class GameAnalyticsSDK {
         var itemType:string = args.hasOwnProperty("itemType") ? args["itemType"] : "";
         var itemId:string = args.hasOwnProperty("itemId") ? args["itemId"] : "";
         var cartType:string = args.hasOwnProperty("cartType") ? args["cartType"] : "";
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
-        var fieldsString:string = JSON.stringify(fields);
-        var fieldsNSString = NSString.stringWithString(fieldsString);
-        var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
-        var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fieldsString:string = JSON.stringify(fields);
+        // var fieldsNSString = NSString.stringWithString(fieldsString);
+        // var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
+        // var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
 
-        GameAnalytics.addBusinessEventWithCurrencyAmountItemTypeItemIdCartTypeAutoFetchReceiptFields(currency, amount, itemType, itemId, cartType, true, fieldsDict);
+        GameAnalytics.addBusinessEventWithCurrencyAmountItemTypeItemIdCartTypeAutoFetchReceipt(currency, amount, itemType, itemId, cartType, true/*, fieldsDict*/);
     }
 
     public static addResourceEvent(args:{[id:string]: any}): void
@@ -149,13 +149,13 @@ export class GameAnalyticsSDK {
         var amount:number = args.hasOwnProperty("amount") ? args["amount"] : 0;
         var itemType:string = args.hasOwnProperty("itemType") ? args["itemType"] : "";
         var itemId:string = args.hasOwnProperty("itemId") ? args["itemId"] : "";
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
-        var fieldsString:string = JSON.stringify(fields);
-        var fieldsNSString = NSString.stringWithString(fieldsString);
-        var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
-        var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fieldsString:string = JSON.stringify(fields);
+        // var fieldsNSString = NSString.stringWithString(fieldsString);
+        // var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
+        // var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
 
-        GameAnalytics.addResourceEventWithFlowTypeCurrencyAmountItemTypeItemIdFields(flowType, currency, amount, itemType, itemId, fieldsDict);
+        GameAnalytics.addResourceEventWithFlowTypeCurrencyAmountItemTypeItemId(flowType, currency, amount, itemType, itemId/*, fieldsDict*/);
     }
 
     public static addProgressionEvent(args:{[id:string]: any}): void
@@ -165,20 +165,20 @@ export class GameAnalyticsSDK {
         var progression02:string = args.hasOwnProperty("progression02") ? args["progression02"] : null;
         var progression03:string = args.hasOwnProperty("progression03") ? args["progression03"] : null;
         var score:number = args.hasOwnProperty("score") ? args["score"] : undefined;
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
         var sendScore:boolean = typeof score != "undefined";
-        var fieldsString:string = JSON.stringify(fields);
-        var fieldsNSString = NSString.stringWithString(fieldsString);
-        var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
-        var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
+        // var fieldsString:string = JSON.stringify(fields);
+        // var fieldsNSString = NSString.stringWithString(fieldsString);
+        // var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
+        // var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
 
         if(sendScore)
         {
-            GameAnalytics.addProgressionEventWithProgressionStatusProgression01Progression02Progression03ScoreFields(progressionStatus, progression01, (progression02 && progression02.length > 0) ? progression02 : null, (progression03 && progression03.length > 0) ? progression03 : null, score, fieldsDict)
+            GameAnalytics.addProgressionEventWithProgressionStatusProgression01Progression02Progression03Score(progressionStatus, progression01, (progression02 && progression02.length > 0) ? progression02 : null, (progression03 && progression03.length > 0) ? progression03 : null, score/*, fieldsDict*/)
         }
         else
         {
-            GameAnalytics.addProgressionEventWithProgressionStatusProgression01Progression02Progression03Fields(progressionStatus, progression01, (progression02 && progression02.length > 0) ? progression02 : null, (progression03 && progression03.length > 0) ? progression03 : null, fieldsDict);
+            GameAnalytics.addProgressionEventWithProgressionStatusProgression01Progression02Progression03(progressionStatus, progression01, (progression02 && progression02.length > 0) ? progression02 : null, (progression03 && progression03.length > 0) ? progression03 : null/*, fieldsDict*/);
         }
     }
 
@@ -186,20 +186,20 @@ export class GameAnalyticsSDK {
     {
         var eventId:string = args.hasOwnProperty("eventId") ? args["eventId"] : "";
         var value:number = args.hasOwnProperty("value") ? args["value"] : undefined;
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
         var sendValue:boolean = typeof value != "undefined";
-        var fieldsString:string = JSON.stringify(fields);
-        var fieldsNSString = NSString.stringWithString(fieldsString);
-        var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
-        var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
+        // var fieldsString:string = JSON.stringify(fields);
+        // var fieldsNSString = NSString.stringWithString(fieldsString);
+        // var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
+        // var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
 
         if(sendValue)
         {
-            GameAnalytics.addDesignEventWithEventIdValueFields(eventId, value, fieldsDict);
+            GameAnalytics.addDesignEventWithEventIdValue(eventId, value/*, fieldsDict*/);
         }
         else
         {
-            GameAnalytics.addDesignEventWithEventIdFields(eventId, fieldsDict);
+            GameAnalytics.addDesignEventWithEventId(eventId/*, fieldsDict*/);
         }
     }
 
@@ -207,13 +207,13 @@ export class GameAnalyticsSDK {
     {
         var severity:EGAErrorSeverity = args.hasOwnProperty("severity") ? args["severity"] : EGAErrorSeverity.Undefined;
         var message:string = args.hasOwnProperty("message") ? args["message"] : "";
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
-        var fieldsString:string = JSON.stringify(fields);
-        var fieldsNSString = NSString.stringWithString(fieldsString);
-        var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
-        var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fieldsString:string = JSON.stringify(fields);
+        // var fieldsNSString = NSString.stringWithString(fieldsString);
+        // var fieldsData = fieldsNSString.dataUsingEncoding(NSUTF8StringEncoding);
+        // var fieldsDict = NSJSONSerialization.JSONObjectWithDataOptionsError(fieldsData, kNilOptions, null);
 
-        GameAnalytics.addErrorEventWithSeverityMessageFields(severity, message, fieldsDict);
+        GameAnalytics.addErrorEventWithSeverityMessage(severity, message/*, fieldsDict*/);
     }
 
     public static setEnabledInfoLog(flag:boolean = false): void

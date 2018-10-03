@@ -6,7 +6,7 @@ declare var java: any;
 const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
-    private static version:string = "2.0.0";
+    private static version:string = "2.0.1";
     private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
 
     private static CommandCenterListenerImpl = java.lang.Object.extend({
@@ -76,10 +76,10 @@ export class GameAnalyticsSDK {
         var itemType:string = args.hasOwnProperty("itemType") ? args["itemType"] : "";
         var itemId:string = args.hasOwnProperty("itemId") ? args["itemId"] : "";
         var cartType:string = args.hasOwnProperty("cartType") ? args["cartType"] : "";
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
-        var fieldsString:string = JSON.stringify(fields);
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fieldsString:string = JSON.stringify(fields);
 
-        GameAnalytics.addBusinessEventWithCurrency(currency, amount, itemType, itemId, cartType, fieldsString);
+        GameAnalytics.addBusinessEventWithCurrency(currency, amount, itemType, itemId, cartType/*, fieldsString*/);
     }
 
     public static addBusinessEventAndroid(args:{[id:string]: any}): void
@@ -91,10 +91,10 @@ export class GameAnalyticsSDK {
         var cartType:string = args.hasOwnProperty("cartType") ? args["cartType"] : "";
         var receipt:string = args.hasOwnProperty("receipt") ? args["receipt"] : "";
         var signature:string = args.hasOwnProperty("signature") ? args["signature"] : "";
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
-        var fieldsString:string = JSON.stringify(fields);
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fieldsString:string = JSON.stringify(fields);
 
-        GameAnalytics.addBusinessEventWithCurrency(currency, amount, itemType, itemId, cartType, receipt, "google_play", signature, fieldsString)
+        GameAnalytics.addBusinessEventWithCurrency(currency, amount, itemType, itemId, cartType, receipt, "google_play", signature/*, fieldsString*/)
     }
 
     public static addBusinessEventIOS(args:{[id:string]: any}): void
@@ -114,10 +114,10 @@ export class GameAnalyticsSDK {
         var amount:number = args.hasOwnProperty("amount") ? args["amount"] : 0;
         var itemType:string = args.hasOwnProperty("itemType") ? args["itemType"] : "";
         var itemId:string = args.hasOwnProperty("itemId") ? args["itemId"] : "";
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
-        var fieldsString:string = JSON.stringify(fields);
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fieldsString:string = JSON.stringify(fields);
 
-        GameAnalytics.addResourceEventWithFlowType(flowType, currency, amount, itemType, itemId, fieldsString);
+        GameAnalytics.addResourceEventWithFlowType(flowType, currency, amount, itemType, itemId/*, fieldsString*/);
     }
 
     public static addProgressionEvent(args:{[id:string]: any}): void
@@ -127,17 +127,17 @@ export class GameAnalyticsSDK {
         var progression02:string = args.hasOwnProperty("progression02") ? args["progression02"] : "";
         var progression03:string = args.hasOwnProperty("progression03") ? args["progression03"] : "";
         var score:number = args.hasOwnProperty("score") ? args["score"] : undefined;
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
         var sendScore:boolean = typeof score != "undefined";
-        var fieldsString:string = JSON.stringify(fields);
+        // var fieldsString:string = JSON.stringify(fields);
 
         if(sendScore)
         {
-            GameAnalytics.addProgressionEventWithProgressionStatus(progressionStatus, progression01, progression02, progression03, score, fieldsString)
+            GameAnalytics.addProgressionEventWithProgressionStatus(progressionStatus, progression01, progression02, progression03, score/*, fieldsString*/)
         }
         else
         {
-            GameAnalytics.addProgressionEventWithProgressionStatus(progressionStatus, progression01, progression02, progression03, fieldsString);
+            GameAnalytics.addProgressionEventWithProgressionStatus(progressionStatus, progression01, progression02, progression03/*, fieldsString*/);
         }
     }
 
@@ -145,17 +145,17 @@ export class GameAnalyticsSDK {
     {
         var eventId:string = args.hasOwnProperty("eventId") ? args["eventId"] : "";
         var value:number = args.hasOwnProperty("value") ? args["value"] : undefined;
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
         var sendValue:boolean = typeof value != "undefined";
-        var fieldsString:string = JSON.stringify(fields);
+        // var fieldsString:string = JSON.stringify(fields);
 
         if(sendValue)
         {
-            GameAnalytics.addDesignEventWithEventId(eventId, value, fieldsString);
+            GameAnalytics.addDesignEventWithEventId(eventId, value/*, fieldsString*/);
         }
         else
         {
-            GameAnalytics.addDesignEventWithEventId(eventId, fieldsString);
+            GameAnalytics.addDesignEventWithEventId(eventId/*, fieldsString*/);
         }
     }
 
@@ -163,10 +163,10 @@ export class GameAnalyticsSDK {
     {
         var severity:EGAErrorSeverity = args.hasOwnProperty("severity") ? args["severity"] : EGAErrorSeverity.Undefined;
         var message:string = args.hasOwnProperty("message") ? args["message"] : "";
-        var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
-        var fieldsString:string = JSON.stringify(fields);
+        // var fields:{[id:string]: any} = args.hasOwnProperty("fields") ? args["fields"] : {};
+        // var fieldsString:string = JSON.stringify(fields);
 
-        GameAnalytics.addErrorEventWithSeverity(severity, message, fieldsString);
+        GameAnalytics.addErrorEventWithSeverity(severity, message/*, fieldsString*/);
     }
 
     public static setEnabledInfoLog(flag:boolean = false): void
