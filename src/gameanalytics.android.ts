@@ -6,7 +6,7 @@ declare var java: any;
 const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
-    private static version:string = "2.0.2";
+    private static version:string = "2.0.3";
     private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
 
     private static CommandCenterListenerImpl = java.lang.Object.extend({
@@ -66,7 +66,7 @@ export class GameAnalyticsSDK {
         GameAnalytics.addCommandCenterListener(GameAnalyticsSDK._commandCenterListener);
         GameAnalytics.configureSdkGameEngineVersion("nativescript " + GameAnalyticsSDK.version);
         //GameAnalytics.configureGameEngineVersion("nativescript " + NATIVESCRIPT_VERSION);
-        GameAnalytics.initializeWithGameKey(app.android.startActivity, gameKey, gameSecret);
+        GameAnalytics.initializeWithGameKey(app.android.foregroundActivity, gameKey, gameSecret);
     }
 
     public static addBusinessEvent(args:{[id:string]: any}): void

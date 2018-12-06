@@ -46,6 +46,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**2.0.3**
+* small fixes to android
+
 **2.0.2**
 * fixed business event validation
 
