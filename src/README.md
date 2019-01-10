@@ -46,6 +46,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**2.0.4**
+* updated nativescript version
+
 **2.0.3**
 * small fixes to android
 

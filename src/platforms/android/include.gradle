@@ -1,16 +1,6 @@
-﻿android {
-    productFlavors {
-        "nativescript-gameanalytics" {
-            dimension "nativescript-gameanalytics"
-        }
-    }
-}
-
-allprojects {
-    repositories {
-        maven { url 'https://maven.google.com' }
-        maven { url 'http://maven.gameanalytics.com/release' }
-    }
+repositories {
+    maven { url 'https://maven.google.com' }
+    maven { url 'http://maven.gameanalytics.com/release' }
 }
 
 dependencies {
