@@ -6,7 +6,7 @@ declare var java: any;
 const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
-    private static version:string = "2.0.4";
+    private static version:string = "2.1.0";
     private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
 
     private static CommandCenterListenerImpl = java.lang.Object.extend({
@@ -182,6 +182,11 @@ export class GameAnalyticsSDK {
     public static setEnabledManualSessionHandling(flag:boolean = false): void
     {
         GameAnalytics.setEnabledManualSessionHandling(flag);
+    }
+
+    public static setEnabledEventSubmission(flag:boolean = false): void
+    {
+        GameAnalytics.setEnabledEventSubmission(flag);
     }
 
     public static setCustomDimension01(dimension:string = ""): void
