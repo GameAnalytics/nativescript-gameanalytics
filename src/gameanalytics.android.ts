@@ -6,7 +6,7 @@ declare var java: any;
 const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
-    private static version:string = "2.1.1";
+    private static version:string = "2.1.2";
     private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
 
     private static CommandCenterListenerImpl = java.lang.Object.extend({
