@@ -46,6 +46,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**2.1.1**
+* declaration file fixed
+
 **2.1.0**
 * added enable/disable event submission function
 
