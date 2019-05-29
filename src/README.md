@@ -46,6 +46,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**2.1.3**
+* removed enum from declaration file
+
 **2.1.2**
 * dependencies updated
 

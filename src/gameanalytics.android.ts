@@ -6,7 +6,7 @@ declare var java: any;
 const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
-    private static version:string = "2.1.2";
+    private static version:string = "2.1.3";
     private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
 
     private static CommandCenterListenerImpl = java.lang.Object.extend({
@@ -209,9 +209,10 @@ export class GameAnalyticsSDK {
         GameAnalytics.setFacebookId(facebookId);
     }
 
-    public static setGender(gender:EGAGender = EGAGender.Undefined): void
+    public static setGender(gender:any): void
     {
-        GameAnalytics.setGender(gender);
+        var genderAs:EGAGender = gender;
+        GameAnalytics.setGender(genderAs);
     }
 
     public static setBirthYear(birthYear:number = 0): void

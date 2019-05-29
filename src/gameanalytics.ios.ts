@@ -20,7 +20,7 @@ declare var GACommandCenterDelegate: {
 };
 
 export class GameAnalyticsSDK {
-    private static version:string = "2.1.2";
+    private static version:string = "2.1.3";
     private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
 
     private static GACommandCenterDelegateImpl = class GACommandCenterDelegateImpl extends NSObject implements GACommandCenterDelegate
@@ -256,9 +256,10 @@ export class GameAnalyticsSDK {
         GameAnalytics.setFacebookId(facebookId);
     }
 
-    public static setGender(gender:EGAGender = EGAGender.Undefined): void
+    public static setGender(gender:any): void
     {
-        switch(gender)
+        var genderAs:EGAGender = gender;
+        switch(genderAs)
         {
             case EGAGender.Male:
                 GameAnalytics.setGender("male");

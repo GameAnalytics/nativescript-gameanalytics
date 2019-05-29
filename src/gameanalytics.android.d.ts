@@ -1,4 +1,3 @@
-import { EGAGender } from './gameanalytics-enums';
 import { ISignal } from "strongly-typed-events";
 export declare class GameAnalyticsSDK {
     private static version;
@@ -43,7 +42,7 @@ export declare class GameAnalyticsSDK {
     static setCustomDimension02(dimension?: string): void;
     static setCustomDimension03(dimension?: string): void;
     static setFacebookId(facebookId?: string): void;
-    static setGender(gender?: EGAGender): void;
+    static setGender(gender?: any): void;
     static setBirthYear(birthYear?: number): void;
     static startSession(): void;
     static endSession(): void;

@@ -79,7 +79,7 @@ export class GameAnalyticsSDK {
 
     static setFacebookId(facebookId:string): void;
 
-    static setGender(gender:EGAGender): void;
+    static setGender(gender:any): void;
 
     static setBirthYear(birthYear:number): void;
 
