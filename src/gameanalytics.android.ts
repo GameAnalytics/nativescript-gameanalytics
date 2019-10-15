@@ -7,23 +7,23 @@ const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
     private static version:string = "2.1.3";
-    private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
+    private static _onRemoteConfigsUpdated:Array<() => void> = new Array<() => void>();
 
-    private static CommandCenterListenerImpl = java.lang.Object.extend({
-        interfaces: [com.gameanalytics.sdk.ICommandCenterListener],
-        onCommandCenterUpdated: () => {
-            console.log("onCommandCenterUpdated before");
-            GameAnalyticsSDK._onCommandCenterUpdated.forEach((listener) => {
+    private static RemoteConfigsListenerImpl = java.lang.Object.extend({
+        interfaces: [com.gameanalytics.sdk.IRemoteConfigsListener],
+        onRemoteConfigsUpdated: () => {
+            console.log("onRemoteConfigsUpdated before");
+            GameAnalyticsSDK._onRemoteConfigsUpdated.forEach((listener) => {
                 if(listener)
                 {
                     listener();
                 }
             });
-            console.log("onCommandCenterUpdated after");
+            console.log("onRemoteConfigsUpdated after");
         }
     });
 
-    private static _commandCenterListener = new GameAnalyticsSDK.CommandCenterListenerImpl();
+    private static _remoteConfigsListener = new GameAnalyticsSDK.RemoteConfigsListenerImpl();
 
     // public functions
     public static configureAvailableCustomDimensions01(customDimensions:Array<string> = []): void
@@ -63,7 +63,7 @@ export class GameAnalyticsSDK {
 
     public static initialize(gameKey:string = "", gameSecret:string = ""): void
     {
-        GameAnalytics.addCommandCenterListener(GameAnalyticsSDK._commandCenterListener);
+        GameAnalytics.addRemoteConfigsListener(GameAnalyticsSDK._remoteConfigsListener);
         GameAnalytics.configureSdkGameEngineVersion("nativescript " + GameAnalyticsSDK.version);
         //GameAnalytics.configureGameEngineVersion("nativescript " + NATIVESCRIPT_VERSION);
         GameAnalytics.initializeWithGameKey(app.android.foregroundActivity, gameKey, gameSecret);
@@ -230,14 +230,14 @@ export class GameAnalyticsSDK {
         GameAnalytics.endSession();
     }
 
-    public static getCommandCenterValueAsString(key:string, defaultValue:string = null): string
+    public static getRemoteConfigsValueAsString(key:string, defaultValue:string = null): string
     {
-        return GameAnalytics.getCommandCenterValueAsString(key, defaultValue);
+        return GameAnalytics.getRemoteConfigsValueAsString(key, defaultValue);
     }
 
-    public static isCommandCenterReady(): boolean
+    public static isRemoteConfigsReady(): boolean
     {
-        return GameAnalytics.isCommandCenterReady();
+        return GameAnalytics.isRemoteConfigsReady();
     }
 
     public static getConfigurationsContentAsString(): string
@@ -245,22 +245,22 @@ export class GameAnalyticsSDK {
         return GameAnalytics.getConfigurationsContentAsString();
     }
 
-    public static addCommandCenterListener(listener:() => void): void
+    public static addRemoteConfigsListener(listener:() => void): void
     {
-        if(listener && GameAnalyticsSDK._onCommandCenterUpdated.indexOf(listener, 0) < 0)
+        if(listener && GameAnalyticsSDK._onRemoteConfigsUpdated.indexOf(listener, 0) < 0)
         {
-            GameAnalyticsSDK._onCommandCenterUpdated.push(listener);
+            GameAnalyticsSDK._onRemoteConfigsUpdated.push(listener);
         }
     }
 
-    public static removeCommandCenterListener(listener:() => void): void
+    public static removeRemoteConfigsListener(listener:() => void): void
     {
         if(listener)
         {
-            var index = GameAnalyticsSDK._onCommandCenterUpdated.indexOf(listener, 0);
+            var index = GameAnalyticsSDK._onRemoteConfigsUpdated.indexOf(listener, 0);
             if(index > -1)
             {
-                GameAnalyticsSDK._onCommandCenterUpdated.splice(index, 1);
+                GameAnalyticsSDK._onRemoteConfigsUpdated.splice(index, 1);
             }
         }
     }

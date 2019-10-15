@@ -1,8 +1,8 @@
 import { ISignal } from "strongly-typed-events";
 export declare class GameAnalyticsSDK {
     private static version;
-    private static _onCommandCenterUpdated;
-    private static _commandCenterListener;
+    private static _onRemoteConfigsUpdated;
+    private static _remoteConfigsListener;
     static configureAvailableCustomDimensions01(customDimensions?: Array<string>): void;
     static configureAvailableCustomDimensions02(customDimensions?: Array<string>): void;
     static configureAvailableCustomDimensions03(customDimensions?: Array<string>): void;
@@ -46,7 +46,7 @@ export declare class GameAnalyticsSDK {
     static setBirthYear(birthYear?: number): void;
     static startSession(): void;
     static endSession(): void;
-    static getCommandCenterValueAsString(key: string, defaultValue?: string): string;
-    static isCommandCenterReady(): boolean;
-    static getCommandCenterSubscriber(): ISignal;
+    static getRemoteConfigsValueAsString(key: string, defaultValue?: string): string;
+    static isRemoteConfigsReady(): boolean;
+    static getRemoteConfigsSubscriber(): ISignal;
 }

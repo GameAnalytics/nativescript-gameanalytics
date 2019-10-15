@@ -9,31 +9,31 @@ declare var NSString: any;
 declare var NSUTF8StringEncoding: any;
 declare var NSObject: any;
 
-interface GACommandCenterDelegate
+interface GARemoteConfigsDelegate
 {
-    onCommandCenterUpdated?(): void;
+    onRemoteConfigsUpdated?(): void;
 }
 
-declare var GACommandCenterDelegate: {
+declare var GARemoteConfigsDelegate: {
 
-	prototype: GACommandCenterDelegate;
+	prototype: GARemoteConfigsDelegate;
 };
 
 export class GameAnalyticsSDK {
     private static version:string = "2.1.3";
-    private static _onCommandCenterUpdated:Array<() => void> = new Array<() => void>();
+    private static _onRemoteConfigsUpdated:Array<() => void> = new Array<() => void>();
 
-    private static GACommandCenterDelegateImpl = class GACommandCenterDelegateImpl extends NSObject implements GACommandCenterDelegate
+    private static GARemoteConfigsDelegateImpl = class GARemoteConfigsDelegateImpl extends NSObject implements GARemoteConfigsDelegate
     {
-        static ObjCProtocols = [GACommandCenterDelegate];
+        static ObjCProtocols = [GARemoteConfigsDelegate];
 
-        static new(): GACommandCenterDelegateImpl {
-            return <GACommandCenterDelegateImpl>super.new();
+        static new(): GARemoteConfigsDelegateImpl {
+            return <GARemoteConfigsDelegateImpl>super.new();
         }
 
-        onCommandCenterUpdated(): void
+        onRemoteConfigsUpdated(): void
         {
-            GameAnalyticsSDK._onCommandCenterUpdated.forEach((listener) => {
+            GameAnalyticsSDK._onRemoteConfigsUpdated.forEach((listener) => {
                 if(listener)
                 {
                     listener();
@@ -42,7 +42,7 @@ export class GameAnalyticsSDK {
         }
     };
 
-    private static _commandCenterListener = new GameAnalyticsSDK.GACommandCenterDelegateImpl();
+    private static _remoteConfigsListener = new GameAnalyticsSDK.GARemoteConfigsDelegateImpl();
 
     // public functions
     public static configureAvailableCustomDimensions01(customDimensions:Array<string> = []): void
@@ -82,7 +82,7 @@ export class GameAnalyticsSDK {
 
     public static initialize(gameKey:string = "", gameSecret:string = ""): void
     {
-        GameAnalytics.setCommandCenterDelegate(GameAnalyticsSDK._commandCenterListener);
+        GameAnalytics.setRemoteConfigsDelegate(GameAnalyticsSDK._remoteConfigsListener);
         GameAnalytics.configureSdkVersion("nativescript " + GameAnalyticsSDK.version);
         //GameAnalytics.configureGameEngineVersion("nativescript " + NATIVESCRIPT_VERSION);
         GameAnalytics.initializeWithGameKeyGameSecret(gameKey, gameSecret);
@@ -286,37 +286,37 @@ export class GameAnalyticsSDK {
         GameAnalytics.endSession();
     }
 
-    public static getCommandCenterValueAsString(key:string, defaultValue:string = null): string
+    public static getRemoteConfigsValueAsString(key:string, defaultValue:string = null): string
     {
-        return GameAnalytics.getCommandCenterValueAsStringDefaultValue(key, defaultValue);
+        return GameAnalytics.getRemoteConfigsValueAsStringDefaultValue(key, defaultValue);
     }
 
-    public static isCommandCenterReady(): boolean
+    public static isRemoteConfigsReady(): boolean
     {
-        return GameAnalytics.isCommandCenterReady();
+        return GameAnalytics.isRemoteConfigsReady();
     }
 
-    public static getConfigurationsContentAsString(): string
+    public static getRemoteConfigsContentAsString(): string
     {
-        return GameAnalytics.getCommandCenterConfigurations();
+        return GameAnalytics.getRemoteConfigsConfigurations();
     }
 
-    public static addCommandCenterListener(listener:() => void): void
+    public static addRemoteConfigsListener(listener:() => void): void
     {
-        if(listener && GameAnalyticsSDK._onCommandCenterUpdated.indexOf(listener, 0) < 0)
+        if(listener && GameAnalyticsSDK._onRemoteConfigsUpdated.indexOf(listener, 0) < 0)
         {
-            GameAnalyticsSDK._onCommandCenterUpdated.push(listener);
+            GameAnalyticsSDK._onRemoteConfigsUpdated.push(listener);
         }
     }
 
-    public static removeCommandCenterListener(listener:() => void): void
+    public static removeRemoteConfigsListener(listener:() => void): void
     {
         if(listener)
         {
-            var index = GameAnalyticsSDK._onCommandCenterUpdated.indexOf(listener, 0);
+            var index = GameAnalyticsSDK._onRemoteConfigsUpdated.indexOf(listener, 0);
             if(index > -1)
             {
-                GameAnalyticsSDK._onCommandCenterUpdated.splice(index, 1);
+                GameAnalyticsSDK._onRemoteConfigsUpdated.splice(index, 1);
             }
         }
     }
