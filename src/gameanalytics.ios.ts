@@ -20,7 +20,7 @@ declare var GARemoteConfigsDelegate: {
 };
 
 export class GameAnalyticsSDK {
-    private static version:string = "2.1.3";
+    private static version:string = "3.0.0";
     private static _onRemoteConfigsUpdated:Array<() => void> = new Array<() => void>();
 
     private static GARemoteConfigsDelegateImpl = class GARemoteConfigsDelegateImpl extends NSObject implements GARemoteConfigsDelegate
