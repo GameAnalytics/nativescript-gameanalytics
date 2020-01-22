@@ -55,6 +55,7 @@
     "homepage": "https://github.com/GameAnalytics/nativescript-gameanalytics",
     "dependencies": {},
     "devDependencies": {
+        "js-yaml": ">=3.13.1",
         "tns-core-modules": "^5.1.1",
         "tns-platform-declarations": "^5.1.1",
         "typescript": "~2.8.2",
