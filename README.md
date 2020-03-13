@@ -44,6 +44,9 @@ For more documentation click [here](https://gameanalytics.com/docs/nativescript-
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**3.0.1**
+* added session_num to init request
+
 **3.0.0**
 * Remote Config calls have been updated and the old calls have deprecated. Please see GA documentation for the new SDK calls and migration guide
 * A/B testing support added

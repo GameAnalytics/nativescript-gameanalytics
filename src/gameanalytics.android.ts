@@ -6,7 +6,7 @@ declare var java: any;
 const GameAnalytics:any = com.gameanalytics.sdk.GameAnalytics;
 
 export class GameAnalyticsSDK {
-    private static version:string = "3.0.0";
+    private static version:string = "3.0.1";
     private static _onRemoteConfigsUpdated:Array<() => void> = new Array<() => void>();
 
     private static RemoteConfigsListenerImpl = java.lang.Object.extend({
