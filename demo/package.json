@@ -46,7 +46,7 @@
     "randomatic": "^3.1.1",
     "raw-loader": "~0.5.1",
     "resolve-url-loader": "~2.1.0",
-    "serialize-javascript": ">=2.1.1",
+    "serialize-javascript": ">=3.1.0",
     "set-value": ">=2.0.1",
     "stringstream": ">=0.0.6",
     "tns-platform-declarations": "^3.1.0",
