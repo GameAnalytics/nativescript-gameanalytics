@@ -5,6 +5,8 @@
 # NativeScript-GameAnalytics
 NativeScript plugin for the GameAnalytics SDK for Android and iOS.
 
+Not being maintained anymore
+
 #### Native Libraries:
 Android | iOS
 ---------- | -----------
