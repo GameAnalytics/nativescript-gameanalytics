@@ -5,6 +5,9 @@
 # NativeScript-GameAnalytics
 NativeScript plugin for the GameAnalytics SDK for Android and iOS.
 
+> **Warning**
+> This SDK has been deprecated since 25th August 2022 and will not receive further updates. This repository is for legacy purposes only.
+
 Not being maintained anymore
 
 #### Native Libraries:
